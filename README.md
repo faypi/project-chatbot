@@ -20,7 +20,7 @@ Questions to be asked
 
 1. Greeting with name - free text (re use in the answer)
 2. Where do you want to go? - free text
-3. How many people are you? - number
+3. How many people are you? - number (Removed)
 4. What time? Morning/afternoon/evening (clickable buttons)
 5. Type of car? Dropdown selection (basic/lux/limo)
     1. If you choose limo ask if they want champagne

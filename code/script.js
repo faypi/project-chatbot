@@ -155,7 +155,7 @@ const handleQuestion4 = (inputCar) => {
   if (inputCar == "Limousine") {
     setTimeout(offerChampagne, 1000)
   } else {
-    setTimeout(goodbyeMessage, 1000)
+    setTimeout(confirmMessage, 1000)
   }
 }
 
@@ -165,10 +165,29 @@ const offerChampagne = () => {
   inputWrapper.innerHTML = ""
 }
 
-const goodbyeMessage = () => {
-  showMessage(`Thank you for booking your ride with Taxi Tomorrow, ${username}! We will send a ${taxiType} taxi to ${address} to transport you ${area}.`, 'bot')
-  inputWrapper.innerHTML = ""
-  
+const confirmMessage = () => {
+  showMessage(`Thank you for booking your ride with Taxi Tomorrow, ${username}! We will send a ${taxiType} taxi to ${address} to transport you ${area}. Are you ok with this?`, 'bot')
+  inputWrapper.innerHTML = `
+  <button id="yes">Yes</button>
+  <button id="no">No</button>
+`
+const yesButton = document.getElementById("yes")
+yesButton.addEventListener('click', () => handleconfirmMessage("Yes"))
+const noButton = document.getElementById("no")
+noButton.addEventListener('click', () => handleconfirmMessage("No"))
+
+}
+
+const handleconfirmMessage = (inputButton) => {
+  showMessage(inputButton, 'user')
+  if (inputButton=="Yes") {
+    showMessage('Thanksssss see yaaaa', 'bot')
+    inputWrapper.innerHTML = ""
+  }
+  else {
+    showMessage(`zOh I'm sorry to hear, let's start from the beginning maybe?`, 'bot')
+    askQuestion1()
+  }
 }
 // //REPLY 2
 // const areaOfDestination = (area) => {
